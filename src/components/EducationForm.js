@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+
+
 export class EducationForm extends Component {
    constructor(props) { 
      super(props)
@@ -9,7 +11,8 @@ export class EducationForm extends Component {
          school: '',
          degree: '',
          gpa: ''
-       }
+       },
+       id: this.props.id
      }
    }
   
@@ -19,7 +22,8 @@ export class EducationForm extends Component {
       info: {
         ...this.state.info, 
         [e.target.id] : e.target.value
-      }
+      },
+      id: this.props.id
     })
   }
 
@@ -32,20 +36,19 @@ export class EducationForm extends Component {
           school: this.state.info.school,
           degree: this.state.info.degree,
           gpa: this.state.info.gpa
-      }
+      },
+      id: this.props.id
     })
     // Make the function call to pass back updated object
-    this.props.getEducationInfo(this.state.info)
+    this.props.getEducationInfo(this.state)
   }
   clearForm = () => { 
-    this.setState({
-      info: {
-         school: '',
-         degree: '',
-         gpa: ''
-       }
-    })
+    this.props.deleteEducationObject(this.state.id)
   }
+
+
+
+
   render() {
     const { school, degree, gpa } = this.state.info
     return (
@@ -73,7 +76,7 @@ export class EducationForm extends Component {
             onChange={ this.handleOnChange }
           />
           <button type='submit'>Add to Resume</button>
-          <button onClick={this.clearForm}>Clear Info</button>
+          <button onClick={this.clearForm}>Delete Section</button>
         </form>
       </div>
     )

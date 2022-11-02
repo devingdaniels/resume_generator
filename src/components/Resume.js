@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import uniqid from "uniqid";
+
 export default class Resume extends Component {
 
     constructor(props) { 
@@ -21,13 +23,14 @@ export default class Resume extends Component {
                 <p>Phone:{phone}</p>
                 
                 <ul>
-                    {this.props.educationInfo.map((info, index) => { 
-                        return (
-                            <>
-                                <li key={index}>{info.school}</li>
-                                <li key={index}>{info.degree}</li>
-                                <li key={index}>{info.gpa}</li>
-                            </>
+                    {this.props.educationInfo.map((element) => {                           
+                        return (                            
+                        <div key={element.id}>
+                            <li>{element.info.school}</li>
+                            <li>{element.info.degree}</li>
+                            <li>{element.info.gpa}</li>
+                        </div>
+                            
                         )
                     })} 
                 </ul>
