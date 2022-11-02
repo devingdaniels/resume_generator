@@ -65,49 +65,47 @@ export class Experience extends Component {
       <div> 
         <h1>Experience</h1>
         <form onSubmit={this.handleSubmit}>
-
-          <label htmlFor="position">Position</label>
+          
           <input
             type="text"
             id='position'
             value={position}
+            placeholder={'Position'}
             onChange={ this.handleOnChange }
           />
-
-          <label htmlFor="company">Company</label>
+          
           <input
             type="text"
             id='company'
             value={company}
+            placeholder={'Company'}
             onChange={ this.handleOnChange }
           />
-
-          <label htmlFor="city">City</label>
+          
           <input
             type="text"
             id='city'
             value={city}
+            placeholder={'City'}
             onChange={ this.handleOnChange }
           />
-
-          <label htmlFor="from">From</label>
+          
           <input
             type="date"
             id='from'
-            value={from}
+            value={from}            
             onChange={ this.handleOnChange }
           />
-
-          <label htmlFor="to">To</label>
+          
           <input
             type="date"
             id='to'
-            value={to}
+            value={to}            
             onChange={ this.handleOnChange }
           />
 
-          <button type='submit'>Add Info</button>
-          <button onClick={this.clearForm}>Clear</button>
+          <button type='submit'>Add to Resume</button>
+          <button onClick={this.clearForm}>Clear Info</button>
 
         </form>
       </div>

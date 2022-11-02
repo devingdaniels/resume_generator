@@ -10,6 +10,7 @@ import Education from './components/Education'
 import Experience from './components/Experience'
 import Resume from './components/Resume'
 import Footer from './components/Footer'
+import EducationForm from './components/EducationForm'
 
 class App extends Component {
   constructor() { 
@@ -17,12 +18,13 @@ class App extends Component {
     // State variable
     this.state = {
       personalInfo: {},
-      educationInfo: {},
+      education: [],
       experienceInfo: {}
     }
     // Method getting passed to child component
     this.getPersonInfo = this.getPersonInfo.bind(this)
     this.getEducationInfo = this.getEducationInfo.bind(this)
+    
   }
   // CLASS METHODS
   // Method to get personal info from Personal Component state
@@ -38,11 +40,16 @@ class App extends Component {
     })
   }
   // Method to get education info from Education Component state
+  
+
+  // Education Component Methods
   getEducationInfo = (info) => { 
     this.setState({
-      educationInfo: info
+      education: [...this.state.education, info]
     })
   }
+  
+
   render() {
     return (
       <div>
@@ -54,10 +61,13 @@ class App extends Component {
         <section className='enterDataComponent'>
           <Experience getExperienceInfo={this.getExperienceInfo}></Experience>
         </section>
-        <section className='enterDataComponent'>
-            <Education getEducationInfo={this.getEducationInfo }/>
+          <section className='enterDataComponent'>
+            <Education getEducationInfo={ this.getEducationInfo }></Education>            
           </section>
-        <Resume personalInfo={this.state.personalInfo} experienceInfo={ this.state.experienceInfo} educationInfo={this.state.educationInfo}  />                
+
+          { console.log(this.state.education)}
+
+        {/* <Resume personalInfo={this.state.personalInfo} experienceInfo={ this.state.experienceInfo} educationInfo={this.state.education}  /> */}
         </main>
         <Footer></Footer>
       </div>

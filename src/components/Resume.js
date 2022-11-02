@@ -9,8 +9,7 @@ export default class Resume extends Component {
 
     render() {
 
-        const { fName, lName, email, phone } = this.props.personalInfo
-        const { school, degree, gpa } = this.props.educationInfo   
+        const { fName, lName, email, phone } = this.props.personalInfo        
         const { position, company, city, from, to } = this.props.experienceInfo       
 
         return (            
@@ -20,9 +19,19 @@ export default class Resume extends Component {
                 <p>Last:{lName}</p>
                 <p>Email:{email}</p>
                 <p>Phone:{phone}</p>
-                <p>School:{school}</p>
-                <p>Degree:{degree}</p>
-                <p>GPA:{gpa}</p>
+                
+                <ul>
+                    {this.props.educationInfo.map((info, index) => { 
+                        return (
+                            <>
+                                <li key={index}>{info.school}</li>
+                                <li key={index}>{info.degree}</li>
+                                <li key={index}>{info.gpa}</li>
+                            </>
+                        )
+                    })} 
+                </ul>
+                
                 <p>Position:{position}</p>
                 <p>Company:{company}</p>
                 <p>City:{city}</p>

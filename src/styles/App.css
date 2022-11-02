@@ -4,21 +4,39 @@
 }
 
 body {
-  width: 60%;
+  background-color: rgb(107, 106, 103);
+}
+
+main {
+  width: 70%;
   margin: 0 auto;
-  background-color: antiquewhite;
+  background-color: rgb(107, 106, 103);
   font-size: 1em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 1%;
 }
 
 header {
+  background-color: rgb(52, 50, 50);
+  color: white;
   font-size: 2em;
   text-align: center;
-  padding: 3%;
+  padding: 1%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: red;
 }
 
 h1 {
   text-align: center;
+  padding: 1%;
+  margin: 1%;
 }
 
 form {
@@ -33,15 +51,68 @@ input {
   margin: 10px auto;
 }
 
-button {
-  width: 25%;
-  margin: 10px auto;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+input {
+  height: 40px;
+}
+
+footer {
+  background-color: rgb(52, 50, 50);
+  padding: 1%;
+  text-align: center;
+  color: white;
 }
 
 /* CLASSES */
 .enterDataComponent {
-  background-color: beige;
+  background-color: rgb(156, 156, 153);
   padding: 3%;
   margin: 3%;
+}
+
+button {
+  align-items: center;
+  margin: 10px auto;
+  width: 25%;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #5468ff 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 32px;
+  justify-content: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 12px;
+}
+
+button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
 }

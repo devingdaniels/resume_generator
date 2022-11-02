@@ -65,48 +65,47 @@ export class Personal extends Component {
         <div>
             <h1>Personal Info</h1>
             <form onSubmit={this.onSubmit}>
-                
-                <label htmlFor="fName">First:</label>
+                                
                 <input
                     type="text"
                     id='fName'
                     value={fName}
+                    placeholder={'First'}
                     onChange={this.handleChange}
                     // required
                 />
-                
-                <label htmlFor="lName">Last</label>
+                                
                 <input
                     type="text"
                     id='lName'
                     value={lName}
+                    placeholder={'Last'}
                     onChange={this.handleChange}
                     // required
                 />
                 
-
-                <label htmlFor="email">Email</label>
+                
                 <input
                     type="email"
                     id='email'
                     value={email}
+                    placeholder={'Email'}
                     onChange={this.handleChange}
                     // required
                 />
-                
-
-                <label htmlFor="phone">Phone</label>
+                                
                 <input
                     type="tel"
                     id='phone'
                     value={phone}
+                    placeholder={'Phone'}
                     onChange={this.handleChange}
                     // required
                 />
                 
 
-                <button type='submit'>Add</button>
-                <button onClick={this.clearForm}>Clear</button>
+                <button type='submit'>Add to Resume</button>
+                <button onClick={this.clearForm}>Remove Info</button>
         </form>
       </div>
     )
