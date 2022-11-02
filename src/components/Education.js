@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 export class Education extends Component {
    constructor() { 
-        super()
+     super()
+     // State variable 
+     this.state = {
+      
+     }
     }
 
   render() {
     return (
-      <div>
-        <h1>Education</h1>
+      <div> 
+        ≤<form action="">
+
+          <label htmlFor="schoolName">School</label>
+          <input type="text" id='sc' />
+
+        </form>
       </div>
     )
   }

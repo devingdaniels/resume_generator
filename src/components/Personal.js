@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
 
-
 export class Personal extends Component {
-    constructor()
+    constructor(props)
     { 
-         super()
+         super(props)
     // State variables
-        this.state = {           
-              fName: '',
-              lName: '',
-              email: '',
-              phone: ''          
-            }
+        this.state = { 
+            info: {
+                fName: '',
+                lName: '',
+                email: '',
+                phone: ''
+            }                
+        }
     }
     
 // Class methods
 // Purpose to store latest values entered by user, on submit then uses those values to update the state
-    handleChange = (e) => {       
+   handleChange = (e) => {       
         this.setState({
-             // Dynamically update the current value triggered by onChange
-            [e.target.id] : e.target.value                       
-          })        
+             // Dynamically update the current value triggered by onChange           
+            info: {
+                ...this.state.info, 
+                [e.target.id]: e.target.value 
+            }
+        })       
     }
     
     onSubmit = (e) => { 
@@ -28,20 +32,24 @@ export class Personal extends Component {
         // Prevent page refresh 
         e.preventDefault()
         // Update the state variable
-        this.setState({
-            info: { 
-              fName: this.state.fName,
-              lName: this.state.lName,
-              email: this.state.email,
-              phone: this.state.phone
-          }})
-        // console.log(`First: ${this.state.fName}, Last: ${this.state.lName}, Email: ${this.state.email}, Phone: ${this.state.phone}, `)            
+        this.setState({     
+            info: {
+                fName: this.state.info.fName,
+                lName: this.state.info.lName,
+                email: this.state.info.email,
+                phone: this.state.info.phone            
+            }              
+        })
+        // Print the state info{} after submit
+        // console.log(`First: ${this.state.info.fName}, Last: ${this.state.info.lName}, Email: ${this.state.info.email}, Phone: ${this.state.info.phone}`)
+        // Pass the info{} back to App.js
+        this.props.getPersonInfo(this.state.info)
     }
 
 
     render() {
       // Create access to state variables using destructuring 
-        const { fName, lName, email, phone } = this.state
+        const { fName, lName, email, phone } = this.state.info
     // Return the component 
     return (
         <div>
