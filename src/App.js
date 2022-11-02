@@ -1,9 +1,15 @@
 
+// Components
+import Personal from './components/Personal'
+import Education from './components/Education'
+import Work from './components/Work'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello from h1</h1>
+    <div>
+      <Personal></Personal>
+      {/* <Education></Education> */}
+      {/* <Work></Work> */}
     </div>
   );
 }
