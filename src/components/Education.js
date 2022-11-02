@@ -55,6 +55,7 @@ export class Education extends Component {
 
     return (
       <div> 
+        <h1>Education</h1>
         <form onSubmit={this.handleSubmit}>
 
           <label htmlFor="school">School</label>

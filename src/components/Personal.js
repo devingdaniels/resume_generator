@@ -63,6 +63,7 @@ export class Personal extends Component {
     // Return the component 
     return (
         <div>
+            <h1>Personal Info</h1>
             <form onSubmit={this.onSubmit}>
                 
                 <label htmlFor="fName">First:</label>
