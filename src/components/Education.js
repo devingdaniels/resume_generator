@@ -1,21 +1,89 @@
 import React, { Component } from 'react'
 
 export class Education extends Component {
-   constructor() { 
-     super()
+   constructor(props) { 
+     super(props)
      // State variable 
      this.state = {
-      
+       info: {
+         school: '',
+         degree: '',
+         gpa: ''
+       }
      }
-    }
+   }
+  
+  handleOnChange = (e) => { 
+    // Dynamically update the property 
+    this.setState({
+      info: {
+        ...this.state.info, 
+        [e.target.id] : e.target.value
+      }
+    })
+  }
+
+  handleSubmit = (e) => {
+    // Prevent page reload
+    e.preventDefault()
+    // Form submitted, update the state with confirmed values and pass the info back to App.js
+    this.setState({
+      info: {
+          school: this.state.info.school,
+          degree: this.state.info.degree,
+          gpa: this.state.info.gpa
+      }
+    })
+    // Make the function call to pass back updated object
+    this.props.getEducationInfo(this.state.info)
+  }
+
+  clearForm = () => { 
+    this.setState({
+      info: {
+         school: '',
+         degree: '',
+         gpa: ''
+       }
+    })
+  }
+
 
   render() {
+
+    const { school, degree, gpa } = this.state.info
+
     return (
       <div> 
-        ≤<form action="">
+        <form onSubmit={this.handleSubmit}>
 
-          <label htmlFor="schoolName">School</label>
-          <input type="text" id='sc' />
+          <label htmlFor="school">School</label>
+          <input
+            type="text"
+            id='school'
+            value={school}
+            onChange={ this.handleOnChange }
+          />
+
+          <label htmlFor="degree">Degree</label>
+          <input
+            type="text"
+            id='degree'
+            value={degree}
+            onChange={ this.handleOnChange }
+          />
+
+          <label htmlFor="gpa">GPA</label>
+          <input
+            type="text"
+            id='gpa'
+            value={gpa}
+            onChange={ this.handleOnChange }
+          />
+
+
+          <button type='submit'>Add Info</button>
+          <button onClick={this.clearForm}>Clear</button>
 
         </form>
       </div>

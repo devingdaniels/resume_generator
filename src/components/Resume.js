@@ -10,6 +10,7 @@ export default class Resume extends Component {
     render() {
 
         const { fName, lName, email, phone } = this.props.personalInfo
+        const { school, degree , gpa } = this.props.educationInfo
         
 
         return (            
@@ -19,6 +20,9 @@ export default class Resume extends Component {
                 <p>Last:{lName}</p>
                 <p>Email:{email}</p>
                 <p>Phone:{phone}</p>
+                <p>School:{school}</p>
+                <p>Degree:{degree}</p>
+                <p>GPA:{gpa}</p>
         </div>
     )
   }

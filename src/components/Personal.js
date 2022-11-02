@@ -46,6 +46,16 @@ export class Personal extends Component {
         this.props.getPersonInfo(this.state.info)
     }
 
+    clearForm = () => { 
+    this.setState({
+      info: {
+                fName: '',
+                lName: '',
+                email: '',
+                phone: ''
+            }       
+    })
+  }
 
     render() {
       // Create access to state variables using destructuring 
@@ -94,7 +104,8 @@ export class Personal extends Component {
                 />
                 
 
-          <button type='submit'>Add</button>
+                <button type='submit'>Add</button>
+                <button onClick={this.clearForm}>Clear</button>
         </form>
       </div>
     )
