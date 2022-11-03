@@ -19,9 +19,10 @@ main {
 header {
   background-color: rgb(52, 50, 50);
   color: white;
-  font-size: 2em;
+  font-size: 1.8em;
   text-align: center;
-  padding: 1%;
+  padding: 0% 1% 0 1%;
+  overflow: hidden;
 }
 
 a {
@@ -33,10 +34,14 @@ a:hover {
   color: red;
 }
 
-h1 {
+p {
+  padding: 1%;
+}
+
+h2,
+h3 {
   text-align: center;
   padding: 1%;
-  margin: 1%;
 }
 
 form {
@@ -62,17 +67,11 @@ footer {
   color: white;
 }
 
-/* CLASSES */
-.enterDataComponent {
-  background-color: rgb(156, 156, 153);
-  padding: 3%;
-  margin: 3%;
-}
-
 button {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   margin: 10px auto;
-  width: 25%;
   background-image: radial-gradient(
     100% 100% at 100% 0,
     #5adaff 0,
@@ -85,14 +84,8 @@ button {
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  display: inline-flex;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 32px;
-  justify-content: center;
-  padding-left: 4px;
-  padding-right: 4px;
-  position: relative;
-  text-align: left;
+  height: 26px;
   text-decoration: none;
   transition: box-shadow 0.15s, transform 0.15s;
   touch-action: manipulation;
@@ -115,4 +108,31 @@ button:hover {
 button:active {
   box-shadow: #3c4fe0 0 3px 7px inset;
   transform: translateY(2px);
+}
+
+/* CLASSES */
+.enterDataComponent {
+  background-color: rgb(156, 156, 153);
+  padding: 3%;
+  margin: 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.resumePage {
+  background-color: #6d7be8;
+  padding: 3%;
+  margin: 3%;
+  font-family: monospace;
+  font-size: 1.5em;
+}
+
+.resumeArticle {
+  border-bottom: 2px solid black;
+  padding: 1%;
+}
+
+.personalInfo {
+  display: flex;
+  justify-content: space-evenly;
 }

@@ -78,7 +78,7 @@ export class EducationForm extends Component {
           required
           />
           <button type='submit'>Add to Resume</button>
-          <button onClick={this.clearForm}>Delete Section</button>
+          <button onClick={this.clearForm}>Delete Education</button>
         </form>      
     )
   }

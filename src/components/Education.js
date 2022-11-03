@@ -56,8 +56,7 @@ class Education extends Component {
     // Get the ID of the info object (same as EducationForm component ID)  
     const infoID = data.id    
     // Get new arrays excluding the info object and related form component
-    const newInfoState = this.state.educationData.filter(obj => obj.id !== infoID)
-    console.log(newInfoState)
+    const newInfoState = this.state.educationData.filter(obj => obj.id !== infoID)    
     const newCompState = this.state.formComponents.filter(obj => obj.props.id !== infoID)
     // Update state and rerender 
     this.setState({
@@ -68,8 +67,8 @@ class Education extends Component {
 
   render() { 
 return (
-      <div>
-        <h1>Education Section</h1> 
+      <div className='enterDataComponent'>
+        <h2>Education Section</h2> 
         {this.state.formComponents.map((form) => { 
           return <div key={form.props.id}> {form} </div>
         })}

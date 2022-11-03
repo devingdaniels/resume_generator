@@ -43,7 +43,7 @@ export class Personal extends Component {
         // Print the state info{} after submit
         // console.log(`First: ${this.state.info.fName}, Last: ${this.state.info.lName}, Email: ${this.state.info.email}, Phone: ${this.state.info.phone}`)
         // Pass the info{} back to App.js
-        this.props.getPersonInfo(this.state.info)
+        this.props.updatePerInfo(this.state.info)
     }
 
     clearForm = () => { 
@@ -62,8 +62,8 @@ export class Personal extends Component {
         const { fName, lName, email, phone } = this.state.info
     // Return the component 
     return (
-        <div>
-            <h1>Personal Info</h1>
+        <div className='enterDataComponent'>
+            <h2>Personal Info</h2>
             <form onSubmit={this.onSubmit}>
                                 
                 <input
