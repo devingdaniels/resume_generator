@@ -45,7 +45,7 @@ export class EducationForm extends Component {
 
 
   clearForm = () => { 
-    console.log('clearForm called in education form')
+    this.props.deleteItem(this.state)
   }
 
 
@@ -58,21 +58,24 @@ export class EducationForm extends Component {
             id='school'
             value={school}
             placeholder={'School'}            
-            onChange={ this.handleOnChange }
+          onChange={this.handleOnChange}
+          required
           />          
           <input
             type="text"
             id='degree'
             value={degree}
             placeholder={'Degree'}
-            onChange={ this.handleOnChange }
+          onChange={this.handleOnChange}
+          required
           />          
           <input
             type="text"
             id='gpa'
             value={gpa}
             placeholder={'GPA'}
-            onChange={ this.handleOnChange }
+          onChange={this.handleOnChange}
+          required
           />
           <button type='submit'>Add to Resume</button>
           <button onClick={this.clearForm}>Delete Section</button>

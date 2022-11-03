@@ -14,32 +14,64 @@ class Education extends Component {
     }    
 
     this.createData = this.createData.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
   }
 
-  createData = (info) => {       
-    // Setting state directly is bad
-    // But, can't figure out why setting info in setState is not updating properly
-    this.state.educationData.push(info)
-    this.setState({      
-      formComponents: [...this.state.formComponents],
+  createData = (info) => {        
+    // Check if info is new or update
+    if (this.state.educationData.find(el => el.id === info.id)) {
+      // Add previous objects to new state, replace old info with new info object with updated values 
+      const newState = this.state.educationData.map(obj => { 
+        // Check if current obj == info, return info
+        if (obj.id === info.id) { 
+          return info
+        }
+        // Else just return the object
+        return obj
+      })
+      // Now have updated array with having replaced info with new info, set the state and rerender
+      // setState usually happens async, so need to call prop AFTER state has been updated as callback function
+      this.setState({
+        educationData: newState,
+        formComponents: [...this.state.formComponents]
+      }, () => this.props.updateEdInfo(this.state.educationData))
+    } else { 
+    // Info is unique, simply update the state and rerender 
+    this.setState({
+      educationData: [...this.state.educationData, info],
+      formComponents: [...this.state.formComponents]    
+    }, () => {      
+      this.props.updateEdInfo(this.state.educationData)
     })
-    // Forward the education data [] to App.js --> so can be rendered in Resume component    
-     this.props.updateEdInfo(this.state.educationData)    
+    }
     }
  
-  
   createForm = () => {     
     this.setState({
-      formComponents: [...this.state.formComponents, <EducationForm addItem={this.createData } id={ uniqid()}></EducationForm> ]
+      formComponents: [...this.state.formComponents, <EducationForm addItem={this.createData} deleteItem={ this.deleteItem} id={ uniqid()}></EducationForm> ]
     })    
+  }
+
+  deleteItem = (data) => {     
+    // Get the ID of the info object (same as EducationForm component ID)  
+    const infoID = data.id    
+    // Get new arrays excluding the info object and related form component
+    const newInfoState = this.state.educationData.filter(obj => obj.id !== infoID)
+    console.log(newInfoState)
+    const newCompState = this.state.formComponents.filter(obj => obj.props.id !== infoID)
+    // Update state and rerender 
+    this.setState({
+      educationData: newInfoState,
+      formComponents: newCompState
+    }, () =>  this.props.updateEdInfo(this.state.educationData))
   }
 
   render() { 
 return (
       <div>
-        <h1>Education Section</h1>
-        {this.state.formComponents.map((form, index) => { 
-          return <div key={index}> {form} </div>
+        <h1>Education Section</h1> 
+        {this.state.formComponents.map((form) => { 
+          return <div key={form.props.id}> {form} </div>
         })}
         <button onClick={this.createForm}>Add Education</button>
       </div>
@@ -48,30 +80,3 @@ return (
 }
 
 export default Education
-
-// // Determine if user created new object or edited previous     
-//     if (this.state.educationData.find(el => el.id === info.id)) { 
-//       const newState = this.state.educationData.map(obj => {
-//       // If info === existing info, replace
-//       if (obj.id === info.id) {
-//         return info
-//       }
-//       // else add previous object
-//       return obj;
-//       });
-//       // Update state
-//       console.log(newState)
-//       this.setState({
-//         educationData: [...this.state.educationData, newState],
-//         formComponents: [...this.state.formComponents]
-//       })
-//     }
-//     else
-//     {
-//       // Unique info object, simply add to existing array of info objects
-//       console.log(info)
-//       this.setState({
-//         educationData: [...this.state.educationData, info],
-//         formComponents: [...this.state.formComponents]        
-//       })
-//     } 

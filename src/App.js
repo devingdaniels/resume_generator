@@ -30,7 +30,6 @@ class App extends Component {
  
   // Method to get education info from Education Component state
   getEdInfo = (info) => {
-    console.log(info)
     this.setState({
       education: info
     })
