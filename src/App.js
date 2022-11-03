@@ -17,91 +17,53 @@ class App extends Component {
     super()
     // State variable
     this.state = {
-      personalInfo: {},
+      personal: {},
       education: [],
-      experienceInfo: {}
+      experience: []
     }
     // Method getting passed to child component
-    this.getPersonInfo = this.getPersonInfo.bind(this)
-    this.getEducationInfo = this.getEducationInfo.bind(this)
-
-    
+    // this.getPerInfo = this.getPerInfo.bind(this)
+    this.getEdInfo = this.getEdInfo.bind(this)
+    // this.getExpInfo = this.getExpInfo.bind(this)
   }
   // CLASS METHODS
-  // Method to get personal info from Personal Component state
-  getPersonInfo = (info) => { 
-    this.setState({
-      personalInfo: info
-    })
-  }
+ 
   // Method to get education info from Education Component state
-  getExperienceInfo = (info) => { 
+  getEdInfo = (info) => {
+    console.log(info)
     this.setState({
-      experienceInfo: info
+      education: info
     })
   }
   
-  // Method to get education info from Education Component state
-  getEducationInfo = (info) => { 
-    // Get unique ID of current info object
-    const currentId = info.id
-    if (this.state.education.find(info => info.id === currentId)) { 
-      const newState = this.state.education.map(obj => {
-      // 👇️ if id equals 2 replace object
-      if (obj.id === currentId) {
-        return info
-      }
-      // 👇️ otherwise return object as is
-      return obj;
-      });
-      // Update state
-      this.setState({
-        education: newState
-      })
-
-    } else {
-    // Does not exist, add the item to the list 
-    this.setState({
-      education: [...this.state.education, info]
-    })
-    }    
-  }
-  
-  
-
-
-
-
   render() {
     return (
-      <div>
-
-        <Header></Header>
-
-        <main>
-
-        <section className='enterDataComponent'>
-          <Personal getPersonInfo={this.getPersonInfo}></Personal>
-        </section>
-          
-
-        <section className='enterDataComponent'>
-          <Experience getExperienceInfo={this.getExperienceInfo}></Experience>
-        </section>
-          
-        <section className='enterDataComponent'>
-            <Education getEducationInfo={this.getEducationInfo} deleteEducationObject={this.deleteEducationObject }></Education>            
-        </section>
-
-        <section>
-          <Resume personalInfo={this.state.personalInfo} experienceInfo={ this.state.experienceInfo} educationInfo={this.state.education}  />
-        </section>          
-        
+      <>
+        <Header/>
+        <main>      
+          <Education updateEdInfo={this.getEdInfo}></Education>                                      
+          <Resume edInfo={this.state.education}  />    
         </main>
-        <Footer></Footer>
-      </div>
+        <Footer/>
+      </>
     )
   }
 }
 
 export default App
+
+
+
+// // Method to get education info from Education Component state
+//   getExpInfo = (info) => {     
+//     this.setState({
+//       experience: info
+//     })
+//   }
+  
+//    // Method to get personal info from Personal Component state
+//   getPerInfo = (info) => { 
+//     this.setState({
+//       personal: info
+//     })
+//   }
