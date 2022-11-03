@@ -68,7 +68,7 @@ class Experience extends Component {
   render() { 
 return (
       <div className='enterDataComponent'>
-        <h2>Experience Section</h2>
+        <h2>Experience</h2>
         {this.state.formComponents.map((form) => { 
           return <div key={form.props.id}> {form} </div>
         })}

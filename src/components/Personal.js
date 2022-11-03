@@ -63,7 +63,7 @@ export class Personal extends Component {
     // Return the component 
     return (
         <div className='enterDataComponent'>
-            <h2>Personal Info</h2>
+            <h2>Contact</h2>
             <form onSubmit={this.onSubmit}>
                                 
                 <input

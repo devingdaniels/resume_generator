@@ -8,12 +8,12 @@ class ResumePersonal extends Component {
       const { fName, lName, email, phone } = this.props.personal    
     return (
         <section>
-            <h2>Personal Info</h2>
-            <ul className='personalInfo'>
+            <h2>Contact</h2>
+            <div className='personalInfo'>
                 <p><b>{fName} {lName}</b></p>                
                 <p><b>{email}</b></p>
                 <p><b>{phone}</b></p>
-            </ul>
+            </div>
         </section>              
     )
   }

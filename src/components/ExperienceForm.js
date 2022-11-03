@@ -57,10 +57,8 @@ class ExperienceForm extends Component {
     const { position, company, city, from, to } = this.state.info
 
     return (
-      <div> 
-        <h1>Experience</h1>
-        <form onSubmit={this.handleSubmit}>
-          
+      <div>         
+        <form onSubmit={this.handleSubmit}>          
           <input
             type="text"
             id='position'

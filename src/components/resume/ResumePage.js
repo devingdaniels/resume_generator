@@ -14,8 +14,8 @@ class Resume extends Component {
         return (            
             <section className='resumePage'>
                 <ResumePersonal personal={this.props.personal}></ResumePersonal>
-                <ResumeEducation education={ this.props.education} ></ResumeEducation>                
-                <ResumeExperience experience={ this.props.experience}></ResumeExperience>            
+                <ResumeExperience experience={ this.props.experience}></ResumeExperience> 
+                <ResumeEducation education={ this.props.education} ></ResumeEducation>                                           
             </section>  
     )
   }

@@ -68,7 +68,7 @@ class Education extends Component {
   render() { 
 return (
       <div className='enterDataComponent'>
-        <h2>Education Section</h2> 
+        <h2>Education</h2> 
         {this.state.formComponents.map((form) => { 
           return <div key={form.props.id}> {form} </div>
         })}
